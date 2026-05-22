@@ -1,0 +1,963 @@
+bash
+
+cat > /mnt/user-data/outputs/samagam_website.html << 'HTMLEOF'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAMAGAM 2026 — The Great Confluence | Hyatt Regency Ludhiana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --esp:#2C1810;--brn:#3D2415;--gld:#C9A84C;--glt:#E8C97A;
+  --crm:#F5E6C8;--ivy:#FDF8F0;--chc:#1A1008;--red:#CC2222;
+  --D:'Cormorant Garamond',Georgia,serif;--B:'Jost',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--chc);color:var(--crm);font-family:var(--B);font-weight:300;overflow-x:hidden;cursor:none}
+
+/* CURSOR */
+#cur{position:fixed;width:10px;height:10px;background:var(--gld);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference;transition:width .15s,height .15s}
+#cur-r{position:fixed;width:34px;height:34px;border:1px solid rgba(201,168,76,.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s,opacity .3s,transform .12s ease}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:22px 52px;transition:all .4s}
+nav.sc{background:rgba(26,16,8,.96);backdrop-filter:blur(14px);padding:14px 52px;border-bottom:1px solid rgba(201,168,76,.12)}
+.n-logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--D);font-size:20px;font-weight:600;color:var(--crm);letter-spacing:.03em}
+.n-lotus{display:flex;align-items:flex-end;gap:2px}
+.nlp{display:block;background:var(--red);border-radius:50% 50% 10% 50%;animation:lpb 3s ease-in-out infinite}
+.nlp:nth-child(1){width:5px;height:11px}
+.nlp:nth-child(2){width:7px;height:15px;animation-delay:.2s}
+.nlp:nth-child(3){width:5px;height:11px;border-radius:50% 50% 50% 10%;animation-delay:.4s}
+@keyframes lpb{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.14)}}
+.n-links{display:flex;gap:30px;list-style:none}
+.n-links a{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--crm);text-decoration:none;opacity:.65;transition:all .3s;position:relative}
+.n-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--gld);transition:width .3s}
+.n-links a:hover{opacity:1;color:var(--gld)}
+.n-links a:hover::after{width:100%}
+.n-cta{background:var(--gld);border:none;color:var(--chc);padding:9px 24px;font-family:var(--B);font-size:10px;letter-spacing:.2em;text-transform:uppercase;cursor:none;transition:all .3s;font-weight:500}
+.n-cta:hover{background:var(--glt)}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:radial-gradient(ellipse at 28% 55%,#4a2e1a 0%,#2C1810 40%,#1A1008 100%)}
+.h-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.035) 1px,transparent 1px);background-size:56px 56px;animation:gd 22s linear infinite}
+@keyframes gd{0%{transform:translate(0,0)}100%{transform:translate(56px,56px)}}
+#ptc{position:absolute;inset:0;overflow:hidden}
+.pt{position:absolute;border-radius:50%;background:var(--gld);opacity:0;animation:fup linear infinite}
+@keyframes fup{0%{transform:translateY(0) scale(0);opacity:0}10%{opacity:.35;transform:scale(1)}90%{opacity:.08}100%{transform:translateY(-100vh) scale(.4);opacity:0}}
+.h-wrap{position:relative;z-index:2;text-align:center;max-width:940px;padding:0 28px}
+.h-ey{font-size:10px;letter-spacing:.42em;text-transform:uppercase;color:var(--gld);margin-bottom:28px;animation:fu 1s ease .3s both}
+.h-lotus{display:flex;justify-content:center;gap:7px;align-items:flex-end;margin-bottom:18px;animation:fu 1s ease .55s both}
+.hlp{background:var(--red);transform-origin:bottom center;animation:lo 1.5s cubic-bezier(.34,1.56,.64,1) both;border-radius:50% 50% 50% 10%}
+.hlp:nth-child(1){width:9px;height:24px;animation-delay:.65s;transform:rotate(-38deg)}
+.hlp:nth-child(2){width:11px;height:30px;animation-delay:.75s;transform:rotate(-18deg)}
+.hlp:nth-child(3){width:13px;height:38px;animation-delay:.85s;transform:rotate(0deg);border-radius:50%}
+.hlp:nth-child(4){width:11px;height:30px;animation-delay:.75s;transform:rotate(18deg);border-radius:50% 50% 10% 50%}
+.hlp:nth-child(5){width:9px;height:24px;animation-delay:.65s;transform:rotate(38deg);border-radius:50% 50% 10% 50%}
+@keyframes lo{0%{transform:scaleY(0);opacity:0}100%{opacity:1}}
+.h-title{font-family:var(--D);font-size:clamp(60px,10vw,118px);font-weight:600;line-height:.92;color:var(--crm);letter-spacing:-.01em;animation:fu 1s ease .95s both;text-shadow:0 0 100px rgba(201,168,76,.12)}
+.h-title em{font-style:italic;color:var(--gld);display:block}
+.h-tag{font-size:10px;letter-spacing:.38em;text-transform:uppercase;color:var(--glt);margin:18px 0 36px;animation:fu 1s ease 1.15s both}
+.h-meta{display:flex;justify-content:center;gap:36px;flex-wrap:wrap;animation:fu 1s ease 1.3s both}
+.hm-item{text-align:center}
+.hm-lbl{font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:var(--gld);opacity:.7;margin-bottom:4px}
+.hm-val{font-family:var(--D);font-size:17px;font-weight:400;color:var(--crm)}
+.hm-div{width:1px;height:44px;background:rgba(201,168,76,.25)}
+.h-ctas{display:flex;gap:14px;justify-content:center;margin-top:48px;animation:fu 1s ease 1.5s both;flex-wrap:wrap}
+.btn-g{background:var(--gld);color:var(--chc);border:none;padding:15px 42px;font-family:var(--B);font-size:10px;letter-spacing:.22em;text-transform:uppercase;cursor:none;font-weight:500;transition:all .3s;position:relative;overflow:hidden;text-decoration:none;display:inline-block}
+.btn-g::before{content:'';position:absolute;inset:0;background:var(--glt);transform:translateX(-100%);transition:transform .4s ease}
+.btn-g:hover::before{transform:translateX(0)}
+.btn-g span{position:relative;z-index:1}
+.btn-o{background:transparent;border:1px solid rgba(201,168,76,.45);color:var(--crm);padding:15px 42px;font-family:var(--B);font-size:10px;letter-spacing:.22em;text-transform:uppercase;cursor:none;font-weight:300;transition:all .3s;text-decoration:none;display:inline-block}
+.btn-o:hover{border-color:var(--gld);color:var(--gld)}
+.sc-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:7px;animation:fu 1s ease 2s both}
+.sc-ln{width:1px;height:44px;background:linear-gradient(var(--gld),transparent);animation:sp 2s ease-in-out infinite}
+@keyframes sp{0%,100%{opacity:.3;transform:scaleY(1)}50%{opacity:1;transform:scaleY(.6)}}
+.sc-tx{font-size:8px;letter-spacing:.3em;color:var(--gld);opacity:.45;text-transform:uppercase}
+@keyframes fu{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+/* TICKER */
+.tk-wrap{background:var(--gld);padding:11px 0;overflow:hidden;white-space:nowrap}
+.tk{display:inline-block;animation:tk 28s linear infinite}
+.tk span{font-family:var(--B);font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:var(--chc);font-weight:500;margin:0 28px}
+.tk-d{color:rgba(44,24,16,.5)}
+@keyframes tk{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* USP BAND */
+#usp{background:var(--esp);padding:80px 0;border-bottom:1px solid rgba(201,168,76,.12)}
+.usp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:rgba(201,168,76,.08)}
+.usp-card{background:var(--esp);padding:44px 36px;border-right:1px solid rgba(201,168,76,.08);transition:background .35s;position:relative;overflow:hidden}
+.usp-card::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--gld);transition:width .4s}
+.usp-card:hover{background:#3a2218}
+.usp-card:hover::after{width:100%}
+.usp-card:last-child{border-right:none}
+.usp-icon{font-size:26px;margin-bottom:18px}
+.usp-title{font-family:var(--D);font-size:20px;font-weight:600;color:var(--gld);margin-bottom:8px;line-height:1.2}
+.usp-desc{font-size:12px;color:rgba(245,230,200,.55);line-height:1.8}
+
+/* SECTIONS */
+section{padding:110px 0}
+.container{max-width:1180px;margin:0 auto;padding:0 48px}
+.s-ey{font-size:9px;letter-spacing:.42em;text-transform:uppercase;color:var(--gld);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.s-ey::before{content:'';display:block;width:24px;height:1px;background:var(--gld)}
+.s-h{font-family:var(--D);font-size:clamp(36px,5vw,58px);font-weight:600;color:var(--crm);line-height:1.06;margin-bottom:14px}
+.s-h em{font-style:italic;color:var(--gld)}
+.s-p{font-size:14px;font-weight:300;color:rgba(245,230,200,.6);line-height:1.85;max-width:520px}
+.rv{opacity:0;transform:translateY(38px);transition:opacity .85s ease,transform .85s ease}
+.rv.vis{opacity:1;transform:translateY(0)}
+
+/* ABOUT */
+#about{background:var(--esp);position:relative;overflow:hidden}
+#about::before{content:'समागम';position:absolute;right:-80px;top:50%;transform:translateY(-50%);font-family:var(--D);font-size:260px;font-weight:700;color:rgba(201,168,76,.025);white-space:nowrap;pointer-events:none;line-height:1}
+.ab-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.ab-txt p{font-size:14px;line-height:1.95;color:rgba(245,230,200,.65);margin-bottom:18px;font-weight:300}
+.ab-txt p strong{color:var(--gld);font-weight:400}
+.ab-quote{border-left:2px solid var(--gld);padding:20px 24px;background:rgba(201,168,76,.06);margin:28px 0}
+.ab-quote p{font-family:var(--D);font-size:16px;font-style:italic;color:var(--crm);line-height:1.7;margin:0}
+.ab-quote cite{display:block;font-family:var(--B);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gld);margin-top:10px;font-style:normal;opacity:.8}
+.st-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.st-c{background:var(--brn);padding:36px 28px;position:relative;overflow:hidden;transition:background .3s}
+.st-c::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,.06) 0%,transparent 60%)}
+.st-c:hover{background:#4a2e1a}
+.st-n{font-family:var(--D);font-size:46px;font-weight:600;color:var(--gld);line-height:1;margin-bottom:6px}
+.st-l{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--crm);opacity:.55}
+.st-c:first-child{background:var(--gld)}
+.st-c:first-child .st-n{color:var(--chc)}
+.st-c:first-child .st-l{color:var(--chc);opacity:.65}
+
+/* CATEGORIES */
+#cats{background:var(--chc)}
+.ct-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(201,168,76,.08);margin-top:60px}
+.ct-c{background:var(--chc);padding:44px 32px;transition:background .4s;position:relative;overflow:hidden;cursor:none}
+.ct-c::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--gld);transition:width .4s}
+.ct-c:hover{background:rgba(61,36,21,.5)}
+.ct-c:hover::after{width:100%}
+.ct-icon{font-size:24px;margin-bottom:16px;display:block}
+.ct-nm{font-family:var(--D);font-size:22px;font-weight:600;color:var(--crm);margin-bottom:10px}
+.ct-items{display:flex;flex-wrap:wrap;gap:5px}
+.ct-tag{font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border:1px solid rgba(201,168,76,.15);color:rgba(245,230,200,.45);transition:all .3s}
+.ct-c:hover .ct-tag{border-color:rgba(201,168,76,.35);color:var(--glt)}
+.one-cat-band{background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.2);padding:32px 40px;margin-top:60px;display:flex;align-items:center;gap:32px}
+.ocb-icon{font-size:32px;flex-shrink:0}
+.ocb-title{font-family:var(--D);font-size:24px;font-weight:600;color:var(--gld);margin-bottom:6px}
+.ocb-desc{font-size:13px;color:rgba(245,230,200,.6);line-height:1.75}
+.ocb-desc strong{color:var(--crm);font-weight:400}
+
+/* EXHIBITORS */
+#exhibitors{background:var(--esp)}
+.ex-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:72px;align-items:start}
+.ben-list{list-style:none;margin-top:32px}
+.ben-list li{display:flex;align-items:flex-start;gap:14px;padding:18px 0;border-bottom:1px solid rgba(201,168,76,.1);transition:border-color .3s}
+.ben-list li:hover{border-color:rgba(201,168,76,.3)}
+.ben-n{font-family:var(--D);font-size:32px;font-weight:300;color:rgba(201,168,76,.22);line-height:1;min-width:40px}
+.ben-ti{font-size:13px;font-weight:400;color:var(--crm);margin-bottom:3px}
+.ben-de{font-size:11px;color:rgba(245,230,200,.48);line-height:1.7}
+
+/* STALL PRICES TABLE */
+.stall-card{background:linear-gradient(135deg,var(--brn) 0%,#4a2e1a 100%);border:1px solid rgba(201,168,76,.22);padding:44px 40px;position:relative;overflow:hidden}
+.stall-card::before{content:'';position:absolute;top:-50px;right:-50px;width:180px;height:180px;background:radial-gradient(circle,rgba(201,168,76,.1) 0%,transparent 70%);border-radius:50%}
+.price-table{width:100%;border-collapse:collapse;margin-bottom:32px}
+.price-table thead tr{background:var(--gld)}
+.price-table thead th{padding:12px 16px;font-family:var(--B);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--chc);font-weight:500;text-align:left}
+.price-table tbody tr{border-bottom:1px solid rgba(201,168,76,.1);transition:background .3s}
+.price-table tbody tr:hover{background:rgba(201,168,76,.05)}
+.price-table tbody td{padding:14px 16px;font-size:13px;color:var(--crm);font-weight:300}
+.price-table tbody td:first-child{font-family:var(--D);font-size:16px;color:var(--crm);font-weight:400}
+.price-table tbody td:last-child{font-family:var(--D);font-size:18px;color:var(--gld);font-weight:600}
+.incl-list{list-style:none;margin-bottom:36px}
+.incl-list li{display:flex;align-items:center;gap:10px;font-size:12px;color:rgba(245,230,200,.75);padding:8px 0;border-bottom:1px solid rgba(201,168,76,.08)}
+.incl-list li::before{content:'✦';color:var(--gld);font-size:7px}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;font-size:8px;letter-spacing:.26em;text-transform:uppercase;color:var(--gld);margin-bottom:7px;opacity:.8}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:rgba(26,16,8,.7);border:1px solid rgba(201,168,76,.2);padding:11px 14px;font-family:var(--B);font-size:12px;color:var(--crm);outline:none;transition:border-color .3s;font-weight:300;appearance:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gld)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-succ{display:none;text-align:center;padding:28px 0;font-family:var(--D);font-size:24px;font-style:italic;color:var(--gld)}
+
+/* COUNTDOWN */
+#cd-sec{background:var(--gld);padding:72px 0;text-align:center}
+.cd-title{font-family:var(--D);font-style:italic;font-size:17px;color:var(--chc);opacity:.65;margin-bottom:28px}
+.cd-grid{display:flex;justify-content:center;align-items:stretch;gap:0}
+.cd-unit{padding:28px 44px;position:relative}
+.cd-unit+.cd-unit::before{content:':';position:absolute;left:-5px;top:50%;transform:translateY(-55%);font-family:var(--D);font-size:52px;font-weight:300;color:var(--chc);opacity:.25;line-height:1}
+.cd-n{font-family:var(--D);font-size:76px;font-weight:700;color:var(--chc);line-height:1;display:block;min-width:2ch;text-align:center}
+.cd-l{font-family:var(--B);font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:var(--chc);opacity:.55;display:block;margin-top:6px}
+
+/* SPONSORS */
+#sponsors{background:var(--chc)}
+.sp-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(201,168,76,.07);margin-top:60px;margin-bottom:64px}
+.sp-t{background:var(--chc);padding:44px 30px;position:relative;overflow:hidden;transition:background .3s}
+.sp-t:hover{background:rgba(44,24,16,.6)}
+.sp-top{height:3px;margin-bottom:28px}
+.sp-stars{font-size:10px;color:var(--gld);letter-spacing:3px;margin-bottom:12px}
+.sp-name{font-family:var(--D);font-size:26px;font-weight:600;line-height:1.15;margin-bottom:6px}
+.sp-price{font-family:var(--D);font-size:36px;font-weight:700;color:var(--gld);margin-bottom:4px;line-height:1}
+.sp-gst{font-size:10px;color:rgba(245,230,200,.4);letter-spacing:.1em;margin-bottom:8px}
+.sp-stall{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--glt);opacity:.7;margin-bottom:24px}
+.sp-bens{list-style:none}
+.sp-bens li{font-size:11px;color:rgba(245,230,200,.6);padding:7px 0;border-bottom:1px solid rgba(201,168,76,.07);display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+.sp-bens li::before{content:'—';color:var(--gld);font-size:9px;flex-shrink:0;margin-top:1px}
+.sp-feat{background:var(--brn);border:1px solid rgba(201,168,76,.22)}
+.sp-feat .sp-name{color:var(--gld)}
+.sp-badge{position:absolute;top:18px;right:18px;background:var(--gld);color:var(--chc);font-size:7px;letter-spacing:.2em;text-transform:uppercase;padding:3px 9px;font-weight:500}
+.sp-why{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;background:rgba(201,168,76,.07);margin-bottom:0}
+.sp-why-c{background:var(--chc);padding:32px 22px;text-align:center;transition:background .3s}
+.sp-why-c:hover{background:rgba(44,24,16,.6)}
+.sp-why-icon{font-size:22px;margin-bottom:12px}
+.sp-why-txt{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:rgba(245,230,200,.55);line-height:1.7}
+.sp-form-wrap{max-width:660px;margin:0 auto}
+
+/* VENUE */
+#venue{background:var(--esp)}
+.vn-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:72px;align-items:center}
+.vn-card{background:var(--brn);border:1px solid rgba(201,168,76,.18);overflow:hidden}
+.vn-vis{height:260px;background:var(--chc);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.vn-hy-txt{font-family:var(--D);font-size:44px;font-weight:300;color:rgba(201,168,76,.12);letter-spacing:.2em;animation:hpulse 4s ease-in-out infinite}
+@keyframes hpulse{0%,100%{opacity:.6;transform:scale(1)}50%{opacity:1;transform:scale(1.015)}}
+.vn-bldg{position:absolute;bottom:0;left:50%;transform:translateX(-50%)}
+.bldg{width:110px;height:150px;background:linear-gradient(180deg,rgba(201,168,76,.08) 0%,rgba(201,168,76,.2) 100%);border:1px solid rgba(201,168,76,.25);margin:0 auto;overflow:hidden}
+.bwins{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;padding:10px}
+.bw{height:10px;background:rgba(201,168,76,.2);animation:wb 4s ease-in-out infinite}
+.bw:nth-child(3n){background:rgba(201,168,76,.45);animation-delay:.8s}
+.bw:nth-child(2n){animation-delay:.4s}
+@keyframes wb{0%,100%{opacity:.4}50%{opacity:1}}
+.vn-lb{padding:18px 22px;background:rgba(201,168,76,.1);border-top:1px solid rgba(201,168,76,.18);font-family:var(--D);font-size:18px;font-weight:600;color:var(--gld);letter-spacing:.06em}
+.vn-lb small{display:block;font-family:var(--B);font-size:9px;letter-spacing:.2em;color:var(--glt);margin-top:2px;font-weight:300;opacity:.7;text-transform:uppercase}
+.vn-facts{}
+.vn-fact{display:flex;gap:14px;padding:18px 0;border-bottom:1px solid rgba(201,168,76,.1);align-items:flex-start}
+.vn-fi{font-size:16px;min-width:26px;color:var(--gld);margin-top:2px}
+.vn-fl{font-size:8px;letter-spacing:.25em;text-transform:uppercase;color:var(--gld);opacity:.65;margin-bottom:3px}
+.vn-fv{font-family:var(--D);font-size:17px;font-weight:400;color:var(--crm)}
+
+/* CONTACT BAND */
+#contact{background:var(--chc);padding:80px 0;border-top:1px solid rgba(201,168,76,.1)}
+.ct-band{display:grid;grid-template-columns:1fr 2fr;gap:60px;align-items:center}
+.ct-info{}
+.ct-row{display:flex;align-items:center;gap:14px;padding:16px 0;border-bottom:1px solid rgba(201,168,76,.1)}
+.ct-ic{font-size:16px;color:var(--gld);min-width:24px}
+.ct-rl{font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:var(--gld);opacity:.7;margin-bottom:2px}
+.ct-rv{font-size:13px;color:var(--crm);font-weight:300}
+.ct-links{display:flex;gap:16px;flex-wrap:wrap;padding-top:16px}
+.ct-lnk{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--glt);text-decoration:none;padding:8px 18px;border:1px solid rgba(201,168,76,.25);transition:all .3s}
+.ct-lnk:hover{border-color:var(--gld);color:var(--gld)}
+.org-box{background:var(--brn);border:1px solid rgba(201,168,76,.2);padding:36px}
+.org-name{font-family:var(--D);font-size:28px;font-weight:600;color:var(--crm);margin-bottom:4px}
+.org-sub{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gld);opacity:.7;margin-bottom:16px}
+.org-desc{font-size:12px;color:rgba(245,230,200,.5);line-height:1.8;margin-bottom:20px}
+.org-ig{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--glt)}
+.ig-pill{background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.25);padding:6px 14px;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gld)}
+
+/* FOOTER */
+footer{background:var(--chc);border-top:1px solid rgba(201,168,76,.12);padding:64px 0 32px}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:52px;margin-bottom:52px}
+.ft-logo{font-family:var(--D);font-size:32px;font-weight:600;color:var(--crm);margin-bottom:5px}
+.ft-tag{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--gld);margin-bottom:18px}
+.ft-desc{font-size:12px;color:rgba(245,230,200,.38);line-height:1.9;max-width:300px}
+.ft-col-t{font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:var(--gld);margin-bottom:18px}
+.ft-col ul{list-style:none}
+.ft-col ul li{padding:5px 0}
+.ft-col ul li a{font-size:12px;color:rgba(245,230,200,.42);text-decoration:none;transition:color .3s}
+.ft-col ul li a:hover{color:var(--gld)}
+.ft-bot{border-top:1px solid rgba(201,168,76,.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ft-copy{font-size:10px;color:rgba(245,230,200,.25);letter-spacing:.05em}
+.ft-soc{display:flex;gap:18px}
+.ft-soc a{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,230,200,.35);text-decoration:none;transition:color .3s}
+.ft-soc a:hover{color:var(--gld)}
+
+/* MODAL */
+.mol-ov{position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;backdrop-filter:blur(5px)}
+.mol-ov.open{opacity:1;pointer-events:all}
+.mol{background:var(--brn);border:1px solid rgba(201,168,76,.28);padding:44px;max-width:480px;width:90%;transform:translateY(18px);transition:transform .3s;position:relative;max-height:90vh;overflow-y:auto}
+.mol-ov.open .mol{transform:translateY(0)}
+.mol-x{position:absolute;top:14px;right:18px;background:none;border:none;color:var(--glt);font-size:20px;cursor:none;opacity:.5;transition:opacity .2s}
+.mol-x:hover{opacity:1}
+.mol-t{font-family:var(--D);font-size:30px;font-weight:600;color:var(--gld);margin-bottom:4px}
+.mol-s{font-size:11px;color:rgba(245,230,200,.45);margin-bottom:24px;letter-spacing:.04em}
+
+/* FLOATING PETALS */
+.pf{position:fixed;pointer-events:none;z-index:1;width:7px;height:14px;background:rgba(204,34,34,.25);border-radius:50% 50% 50% 10%;animation:pfall linear infinite}
+@keyframes pfall{0%{transform:translateY(-20px) rotate(0deg);opacity:.5}100%{transform:translateY(100vh) rotate(360deg);opacity:0}}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav{padding:14px 20px}
+  .n-links{display:none}
+  .container{padding:0 20px}
+  .ab-grid,.ex-grid,.vn-grid,.ft-grid,.ct-band{grid-template-columns:1fr;gap:44px}
+  .ct-grid,.st-grid{grid-template-columns:1fr 1fr}
+  .sp-tiers{grid-template-columns:1fr}
+  .sp-why{grid-template-columns:1fr 1fr}
+  .form-row{grid-template-columns:1fr}
+  .cd-unit{padding:18px 20px}
+  .cd-n{font-size:48px}
+  .hm-div{display:none}
+  .usp-grid{grid-template-columns:1fr}
+  .one-cat-band{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur-r"></div>
+<div id="pfc"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="n-logo">
+    <div class="n-lotus"><span class="nlp"></span><span class="nlp"></span><span class="nlp"></span></div>
+    Samagam
+  </a>
+  <ul class="n-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#cats">Experience</a></li>
+    <li><a href="#exhibitors">Exhibit</a></li>
+    <li><a href="#sponsors">Sponsor</a></li>
+    <li><a href="#venue">Venue</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="n-cta" onclick="document.getElementById('sm').classList.add('open')">Book a Stall</button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div id="ptc"></div>
+  <div class="h-grid"></div>
+  <div class="h-wrap">
+    <div class="h-ey">A Curated Marketplace · A Launchpad for Growth</div>
+    <div class="h-lotus">
+      <div class="hlp"></div><div class="hlp"></div><div class="hlp"></div>
+      <div class="hlp"></div><div class="hlp"></div>
+    </div>
+    <h1 class="h-title">समागम<br><em>Samagam</em></h1>
+    <p class="h-tag">The Great Confluence &nbsp;·&nbsp; 12–13 July 2026</p>
+    <div class="h-meta">
+      <div class="hm-item">
+        <div class="hm-lbl">Venue</div>
+        <div class="hm-val">Hyatt Regency</div>
+      </div>
+      <div class="hm-div"></div>
+      <div class="hm-item">
+        <div class="hm-lbl">City</div>
+        <div class="hm-val">Ludhiana, Punjab</div>
+      </div>
+      <div class="hm-div"></div>
+      <div class="hm-item">
+        <div class="hm-lbl">Entry</div>
+        <div class="hm-val">Free for All</div>
+      </div>
+      <div class="hm-div"></div>
+      <div class="hm-item">
+        <div class="hm-lbl">Visitors</div>
+        <div class="hm-val">3,000+</div>
+      </div>
+      <div class="hm-div"></div>
+      <div class="hm-item">
+        <div class="hm-lbl">Organiser</div>
+        <div class="hm-val">Shivanya Events</div>
+      </div>
+    </div>
+    <div class="h-ctas">
+      <a href="#exhibitors" class="btn-g"><span>Book a Stall — from ₹45,000</span></a>
+      <a href="#sponsors" class="btn-o">Sponsorship Packages</a>
+    </div>
+  </div>
+  <div class="sc-ind">
+    <span class="sc-tx">Discover</span>
+    <div class="sc-ln"></div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="tk-wrap">
+  <div class="tk" id="tk">
+    <span>One Brand Per Category</span><span class="tk-d">✦</span>
+    <span>Zero Competition</span><span class="tk-d">✦</span>
+    <span>Luxury Fashion</span><span class="tk-d">✦</span>
+    <span>Fine Jewellery</span><span class="tk-d">✦</span>
+    <span>Luxury Couture</span><span class="tk-d">✦</span>
+    <span>Culinary Delights</span><span class="tk-d">✦</span>
+    <span>Footwear</span><span class="tk-d">✦</span>
+    <span>Handlooms</span><span class="tk-d">✦</span>
+    <span>Hyatt Regency Ludhiana</span><span class="tk-d">✦</span>
+    <span>12–13 July 2026</span><span class="tk-d">✦</span>
+    <span>One Brand Per Category</span><span class="tk-d">✦</span>
+    <span>Zero Competition</span><span class="tk-d">✦</span>
+    <span>Luxury Fashion</span><span class="tk-d">✦</span>
+    <span>Fine Jewellery</span><span class="tk-d">✦</span>
+    <span>Luxury Couture</span><span class="tk-d">✦</span>
+    <span>Culinary Delights</span><span class="tk-d">✦</span>
+    <span>Footwear</span><span class="tk-d">✦</span>
+    <span>Handlooms</span><span class="tk-d">✦</span>
+    <span>Hyatt Regency Ludhiana</span><span class="tk-d">✦</span>
+    <span>12–13 July 2026</span><span class="tk-d">✦</span>
+  </div>
+</div>
+
+<!-- USP BAND -->
+<div id="usp">
+  <div class="container">
+    <div class="usp-grid rv">
+      <div class="usp-card">
+        <div class="usp-icon">👑</div>
+        <div class="usp-title">Unrivaled Visibility.<br>Zero Competition.</div>
+        <div class="usp-desc">One unique stall per category — your brand gets total monopoly at the venue. No other brand in your space.</div>
+      </div>
+      <div class="usp-card">
+        <div class="usp-icon">🎯</div>
+        <div class="usp-title">Direct Access to 3,000+ Premium Visitors</div>
+        <div class="usp-desc">Niche, high-intent shoppers from Ludhiana and nearby cities. Fashion-forward. Ready to buy.</div>
+      </div>
+      <div class="usp-card">
+        <div class="usp-icon">✨</div>
+        <div class="usp-title">Premium Brand Activation Space</div>
+        <div class="usp-desc">A refined, luxury ambiance at Hyatt Regency where conversations turn into connections — and connections turn into sales.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="ab-grid">
+      <div class="ab-txt rv">
+        <div class="s-ey">About Samagam</div>
+        <h2 class="s-h">Where Punjab's<br><em>finest brands</em><br>converge</h2>
+        <div style="width:44px;height:2px;background:var(--gld);margin:24px 0"></div>
+        <p>SAMAGAM is not just an exhibition — it is a <strong>celebration of refined living</strong>. With a distinctive one-brand-per-category philosophy, we bring together exclusively chosen names that represent excellence, individuality, and trust.</p>
+        <p>Open to all, yet curated with intention. Every detail reflects <strong>exclusivity and warmth</strong>. Welcome to where rarity meets elegance.</p>
+        <div class="ab-quote">
+          <p>"Samagam is not just an exhibition; it is a celebration of refined living. We bring together exclusively chosen names that represent excellence, individuality, and trust."</p>
+          <cite>Roohi Manchanda — Founder, Shivanya Events &amp; Jewellers</cite>
+        </div>
+        <p>A 5-star setting. A Punjab-wide audience. Two days that will define your brand's next chapter.</p>
+      </div>
+      <div class="st-grid rv" style="transition-delay:.2s">
+        <div class="st-c">
+          <div class="st-n" data-target="3000">0</div>
+          <div class="st-l">Premium Visitors</div>
+        </div>
+        <div class="st-c">
+          <div class="st-n" data-target="60">0</div>
+          <div class="st-l">Curated Stalls</div>
+        </div>
+        <div class="st-c">
+          <div class="st-n" data-target="2">0</div>
+          <div class="st-l">Days of Excellence</div>
+        </div>
+        <div class="st-c">
+          <div class="st-n">3.95M+</div>
+          <div class="st-l">Ludhiana Population</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section id="cats">
+  <div class="container">
+    <div class="rv">
+      <div class="s-ey">The Exhibition</div>
+      <h2 class="s-h">A curated world of<br><em>lifestyle categories</em></h2>
+      <p class="s-p">From luxury couture to culinary delights — every category is represented by one exclusively chosen brand. Your brand stands alone.</p>
+    </div>
+    <div class="ct-grid rv" style="transition-delay:.18s">
+      <div class="ct-c">
+        <span class="ct-icon">👗</span>
+        <div class="ct-nm">Apparel</div>
+        <div class="ct-items">
+          <span class="ct-tag">Women's Fashion</span><span class="ct-tag">Menswear</span>
+          <span class="ct-tag">Streetwear</span><span class="ct-tag">Ethnic Wear</span>
+        </div>
+      </div>
+      <div class="ct-c">
+        <span class="ct-icon">💎</span>
+        <div class="ct-nm">Fine &amp; Imitation Jewellery</div>
+        <div class="ct-items">
+          <span class="ct-tag">Fine Jewellery</span><span class="ct-tag">Imitation Jewellery</span>
+          <span class="ct-tag">Watches</span>
+        </div>
+      </div>
+      <div class="ct-c">
+        <span class="ct-icon">👠</span>
+        <div class="ct-nm">Footwear</div>
+        <div class="ct-items">
+          <span class="ct-tag">Luxury Footwear</span><span class="ct-tag">Ethnic Sandals</span>
+          <span class="ct-tag">Sneakers</span>
+        </div>
+      </div>
+      <div class="ct-c">
+        <span class="ct-icon">🧵</span>
+        <div class="ct-nm">Handlooms &amp; Luxury Couture</div>
+        <div class="ct-items">
+          <span class="ct-tag">Handloom Sarees</span><span class="ct-tag">Bridal Couture</span>
+          <span class="ct-tag">Phulkari</span>
+        </div>
+      </div>
+      <div class="ct-c">
+        <span class="ct-icon">🍽️</span>
+        <div class="ct-nm">Culinary Delights</div>
+        <div class="ct-items">
+          <span class="ct-tag">Packaged Foods</span><span class="ct-tag">Artisan Beverages</span>
+          <span class="ct-tag">Gourmet Snacks</span>
+        </div>
+      </div>
+      <div class="ct-c" style="background:rgba(61,36,21,.35)">
+        <span class="ct-icon">🌿</span>
+        <div class="ct-nm">Lifestyle &amp; Wellness</div>
+        <div class="ct-items">
+          <span class="ct-tag">Skincare</span><span class="ct-tag">Home Décor</span>
+          <span class="ct-tag">Wellness</span><span class="ct-tag">Perfumes</span>
+        </div>
+      </div>
+    </div>
+    <div class="one-cat-band rv" style="transition-delay:.35s">
+      <div class="ocb-icon">🏆</div>
+      <div>
+        <div class="ocb-title">One Brand Per Category — Total Monopoly</div>
+        <div class="ocb-desc">SAMAGAM offers <strong>one unique stall per category</strong>, giving your brand complete exclusivity at the venue. No internal competition. Your brand stands alone — and wins alone.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXHIBITORS + BOOKING -->
+<section id="exhibitors">
+  <div class="container">
+    <div class="ex-grid">
+      <div class="rv">
+        <div class="s-ey">For Exhibitors</div>
+        <h2 class="s-h">Your brand.<br><em>Punjab's stage.</em></h2>
+        <p class="s-p">A premium shell scheme stall at Hyatt Regency Ludhiana. Choose your size. Own your category.</p>
+        <ul class="ben-list">
+          <li><div class="ben-n">01</div><div><div class="ben-ti">One Brand Per Category — Zero Competition</div><div class="ben-de">Your category is exclusively yours. No rival brand competes with you under the same roof.</div></div></li>
+          <li><div class="ben-n">02</div><div><div class="ben-ti">Hyatt Regency — 5-Star Positioning</div><div class="ben-de">The most prestigious address in Ludhiana. Your brand is elevated by the mere association.</div></div></li>
+          <li><div class="ben-n">03</div><div><div class="ben-ti">Everything Included in Stall</div><div class="ben-de">Fascia name board, spotlights, 1 table, 2 chairs, power plug, and exhibitor goodies — all included.</div></div></li>
+          <li><div class="ben-n">04</div><div><div class="ben-ti">Niche, High-Intent Audience</div><div class="ben-de">3,000+ targeted visitors from Ludhiana and nearby cities. Fashion-forward families and Gen Z shoppers.</div></div></li>
+          <li><div class="ben-n">05</div><div><div class="ben-ti">Powerful Marketing &amp; PR Coverage</div><div class="ben-de">Feature in social media promotions, event announcements, and influencer coverage throughout.</div></div></li>
+        </ul>
+      </div>
+      <div class="rv" style="transition-delay:.22s">
+        <div class="stall-card">
+          <div style="font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--glt);opacity:.7;margin-bottom:16px">Stall Packages · + GST</div>
+          <table class="price-table">
+            <thead>
+              <tr><th>Booth Size</th><th>Price + GST</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>6' × 15'</td><td>₹65,000/-</td></tr>
+              <tr><td>9' × 8'</td><td>₹55,000/-</td></tr>
+              <tr><td>9' × 6'</td><td>₹50,000/-</td></tr>
+              <tr><td>6' × 8'</td><td>₹45,000/-</td></tr>
+            </tbody>
+          </table>
+          <div style="font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gld);margin-bottom:10px;opacity:.8">Every stall includes</div>
+          <ul class="incl-list">
+            <li>Fascia name board with your brand</li>
+            <li>Dedicated spotlights</li>
+            <li>1 table + 2 chairs</li>
+            <li>Power plug connection</li>
+            <li>Exhibitor goodies package</li>
+            <li>Social media listing &amp; feature</li>
+          </ul>
+          <div id="ef">
+            <div class="form-row">
+              <div class="form-group"><label>Brand Name</label><input type="text" placeholder="Your brand" id="ebrand"></div>
+              <div class="form-group"><label>Category</label>
+                <select id="ecat">
+                  <option value="">Select category</option>
+                  <option>Apparel / Fashion</option><option>Fine Jewellery</option>
+                  <option>Imitation Jewellery</option><option>Footwear</option>
+                  <option>Luxury Couture / Bridal</option><option>Handlooms</option>
+                  <option>Culinary / Food</option><option>Skincare / Beauty</option>
+                  <option>Home Décor</option><option>Wellness / Fitness</option>
+                  <option>Perfumes / Fragrances</option><option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Stall Size Preference</label>
+                <select>
+                  <option>6' × 8' — ₹45,000</option><option>9' × 6' — ₹50,000</option>
+                  <option>9' × 8' — ₹55,000</option><option>6' × 15' — ₹65,000</option>
+                </select>
+              </div>
+              <div class="form-group"><label>WhatsApp Number</label><input type="tel" placeholder="+91 76578 41408"></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>Contact Name</label><input type="text" placeholder="Founder / Manager"></div>
+              <div class="form-group"><label>Email</label><input type="email" placeholder="you@brand.com"></div>
+            </div>
+            <div class="form-group"><label>Instagram Handle</label><input type="text" placeholder="@yourbrand"></div>
+            <button class="btn-g" style="width:100%;margin-top:8px;cursor:none" onclick="submitEx()"><span>Reserve My Stall →</span></button>
+          </div>
+          <div class="form-succ" id="es">
+            <div style="font-size:32px;margin-bottom:8px">✦</div>
+            Stall enquiry received!<br>
+            <span style="font-family:var(--B);font-size:13px;font-style:normal;color:rgba(245,230,200,.55)">Call +91-76578-41408 to confirm.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTDOWN -->
+<div id="cd-sec">
+  <div class="container">
+    <div class="cd-title">The clock is ticking — limited stalls available</div>
+    <div class="cd-grid">
+      <div class="cd-unit"><span class="cd-n" id="cdd">00</span><span class="cd-l">Days</span></div>
+      <div class="cd-unit"><span class="cd-n" id="cdh">00</span><span class="cd-l">Hours</span></div>
+      <div class="cd-unit"><span class="cd-n" id="cdm">00</span><span class="cd-l">Minutes</span></div>
+      <div class="cd-unit"><span class="cd-n" id="cds">00</span><span class="cd-l">Seconds</span></div>
+    </div>
+    <div style="margin-top:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a href="#exhibitors" class="btn-g"><span>Book a Stall</span></a>
+      <a href="#sponsors" style="background:transparent;border:1px solid rgba(44,24,16,.5);color:var(--chc);padding:15px 42px;font-family:var(--B);font-size:10px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:all .3s" onmouseover="this.style.background='rgba(0,0,0,.1)'" onmouseout="this.style.background='transparent'">Sponsor the Event</a>
+    </div>
+  </div>
+</div>
+
+<!-- SPONSORS -->
+<section id="sponsors">
+  <div class="container">
+    <div class="rv">
+      <div class="s-ey">Sponsorship</div>
+      <h2 class="s-h">The brand that leads<br><em>this event will own it</em></h2>
+      <p class="s-p">Associate your brand with Punjab's most premium lifestyle event — powerful marketing exposure, strong brand recall, and category exclusivity in front of 3,000+ niche visitors.</p>
+    </div>
+
+    <!-- Why partner -->
+    <div class="sp-why rv" style="transition-delay:.15s;margin-top:48px">
+      <div class="sp-why-c"><div class="sp-why-icon">💎</div><div class="sp-why-txt">Premium Brand<br>Activation Space</div></div>
+      <div class="sp-why-c"><div class="sp-why-icon">👥</div><div class="sp-why-txt">Direct Interaction with<br>3,000+ Premium Visitors</div></div>
+      <div class="sp-why-c"><div class="sp-why-icon">📢</div><div class="sp-why-txt">Powerful Marketing &amp;<br>Promotional Exposure</div></div>
+      <div class="sp-why-c"><div class="sp-why-icon">👑</div><div class="sp-why-txt">Association with Luxury<br>Fashion &amp; Lifestyle Platform</div></div>
+      <div class="sp-why-c"><div class="sp-why-icon">📈</div><div class="sp-why-txt">Strong Brand Recall &amp;<br>Category Exclusivity</div></div>
+    </div>
+
+    <div class="sp-tiers rv" style="transition-delay:.25s">
+      <!-- Title Sponsor -->
+      <div class="sp-t sp-feat">
+        <div class="sp-badge">Highest Visibility</div>
+        <div class="sp-top" style="background:var(--gld)"></div>
+        <div class="sp-stars">✦ ✦ ✦ ✦ ✦</div>
+        <div class="sp-name">Title Sponsor</div>
+        <div class="sp-price">₹2,00,000</div>
+        <div class="sp-gst">+ taxes</div>
+        <div class="sp-stall">Stall Size: 15' × 6'</div>
+        <ul class="sp-bens">
+          <li>Event presented as "SAMAGAM — Presented by [Your Brand]"</li>
+          <li>Logo on all marketing creatives</li>
+          <li>Logo on main stage backdrop</li>
+          <li>Branding at event entry gate</li>
+          <li>Branding across venue signage</li>
+          <li>Feature in social media promotions</li>
+          <li>Inclusion in event announcements</li>
+          <li>Prime brand activation space</li>
+          <li>Enquiry desk / booth for sampling</li>
+          <li>Category exclusivity</li>
+          <li>Logo on event invitations</li>
+        </ul>
+      </div>
+      <!-- Category Sponsor -->
+      <div class="sp-t">
+        <div class="sp-top" style="background:rgba(201,168,76,.5)"></div>
+        <div class="sp-stars">✦ ✦ ✦</div>
+        <div class="sp-name" style="color:var(--crm)">Category Sponsor</div>
+        <div class="sp-price">₹1,00,000</div>
+        <div class="sp-gst">+ taxes</div>
+        <div class="sp-stall">Stall Size: 6' × 8'</div>
+        <ul class="sp-bens">
+          <li>Logo on event invitations</li>
+          <li>Branding across venue signage</li>
+          <li>Feature in social media promotions</li>
+          <li>Inclusion in event announcements</li>
+          <li>Direct interaction with 3,000+ visitors</li>
+          <li>Booth for enquiries / product showcase / sampling</li>
+          <li>Strong brand recall</li>
+        </ul>
+      </div>
+      <!-- Associate -->
+      <div class="sp-t">
+        <div class="sp-top" style="background:rgba(245,230,200,.2)"></div>
+        <div class="sp-stars">✦ ✦</div>
+        <div class="sp-name" style="color:var(--crm)">Associate / Co-Sponsor</div>
+        <div class="sp-price">₹80,000</div>
+        <div class="sp-gst">+ taxes</div>
+        <div class="sp-stall">Stall Size: 6' × 8'</div>
+        <ul class="sp-bens">
+          <li>Logo on event invitations</li>
+          <li>Feature in social media promotions</li>
+          <li>Inclusion in event announcements</li>
+          <li>Booth for enquiries / product showcase / sampling</li>
+          <li>Brand visibility among premium audience</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Sponsor form -->
+    <div class="sp-form-wrap rv" style="transition-delay:.35s">
+      <div class="stall-card" id="sf-wrap">
+        <div class="s-ey" style="margin-bottom:16px">Sponsorship Enquiry</div>
+        <h3 style="font-family:var(--D);font-size:30px;font-weight:600;color:var(--gld);margin-bottom:22px">Let's create impact together</h3>
+        <div class="form-row">
+          <div class="form-group"><label>Brand / Company Name</label><input type="text" placeholder="Your brand name"></div>
+          <div class="form-group"><label>Sponsorship Package</label>
+            <select>
+              <option>Title Sponsor — ₹2,00,000</option>
+              <option>Category Sponsor — ₹1,00,000</option>
+              <option>Associate / Co-Sponsor — ₹80,000</option>
+              <option>Open to discussing</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Decision Maker Name</label><input type="text" placeholder="Founder / Marketing Manager"></div>
+          <div class="form-group"><label>WhatsApp / Phone</label><input type="tel" placeholder="+91 78140 41408"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Email Address</label><input type="email" placeholder="marketing@brand.com"></div>
+          <div class="form-group"><label>Budget Range</label>
+            <select>
+              <option>₹80,000 (Associate)</option>
+              <option>₹1,00,000 (Category)</option>
+              <option>₹2,00,000 (Title)</option>
+              <option>Open to discussing</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group"><label>Your sponsorship goals</label><textarea rows="3" placeholder="Brand awareness, sampling, direct sales, influencer reach..."></textarea></div>
+        <button class="btn-g" style="width:100%;margin-top:6px;cursor:none" onclick="submitSp()"><span>Send Sponsorship Enquiry →</span></button>
+        <div class="form-succ" id="ss">
+          <div style="font-size:32px;margin-bottom:8px">✦</div>
+          Sponsorship enquiry received!<br>
+          <span style="font-family:var(--B);font-size:13px;font-style:normal;color:rgba(245,230,200,.55)">Contact: +91-78140-41408</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VENUE -->
+<section id="venue">
+  <div class="container">
+    <div class="vn-grid">
+      <div class="rv">
+        <div class="s-ey">The Venue</div>
+        <h2 class="s-h">Hyatt Regency<br><em>Ludhiana</em></h2>
+        <p class="s-p">Ludhiana — the Manchester of India. The Hyatt Regency is the city's most prestigious address, and your brand will stand in it.</p>
+        <div class="vn-card" style="margin-top:32px">
+          <div class="vn-vis">
+            <div class="vn-hy-txt">HYATT</div>
+            <div class="vn-bldg">
+              <div class="bldg">
+                <div class="bwins">
+                  <div class="bw"></div><div class="bw"></div><div class="bw"></div><div class="bw"></div>
+                  <div class="bw"></div><div class="bw"></div><div class="bw"></div><div class="bw"></div>
+                  <div class="bw"></div><div class="bw"></div><div class="bw"></div><div class="bw"></div>
+                  <div class="bw"></div><div class="bw"></div><div class="bw"></div><div class="bw"></div>
+                  <div class="bw"></div><div class="bw"></div><div class="bw"></div><div class="bw"></div>
+                  <div class="bw"></div><div class="bw"></div><div class="bw"></div><div class="bw"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="vn-lb">Hyatt Regency Ludhiana<small>Ludhiana · The Manchester of India</small></div>
+        </div>
+      </div>
+      <div class="rv" style="transition-delay:.2s">
+        <div class="vn-facts">
+          <div class="vn-fact"><div class="vn-fi">📍</div><div><div class="vn-fl">Location</div><div class="vn-fv">Hyatt Regency, Ludhiana, Punjab</div></div></div>
+          <div class="vn-fact"><div class="vn-fi">📅</div><div><div class="vn-fl">Event Dates</div><div class="vn-fv">12–13 July 2026</div></div></div>
+          <div class="vn-fact"><div class="vn-fi">🎟</div><div><div class="vn-fl">Entry</div><div class="vn-fv">Free — Open to All</div></div></div>
+          <div class="vn-fact"><div class="vn-fi">👥</div><div><div class="vn-fl">Expected Visitors</div><div class="vn-fv">3,000+ (Premium Walk-ins)</div></div></div>
+          <div class="vn-fact"><div class="vn-fi">🏙</div><div><div class="vn-fl">City Population</div><div class="vn-fv">3.95 Million+ · 2M+ Consumers</div></div></div>
+          <div class="vn-fact"><div class="vn-fi">⭐</div><div><div class="vn-fl">Venue Grade</div><div class="vn-fv">5-Star Luxury Hotel</div></div></div>
+          <div class="vn-fact"><div class="vn-fi">🏢</div><div><div class="vn-fl">Organiser</div><div class="vn-fv">Shivanya Events &amp; Jewellers</div></div></div>
+        </div>
+        <div style="margin-top:32px;display:flex;gap:12px;flex-wrap:wrap">
+          <button class="btn-g" style="cursor:none" onclick="document.getElementById('sm').classList.add('open')"><span>Book a Stall</span></button>
+          <a href="#contact" class="btn-o">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div id="contact">
+  <div class="container">
+    <div class="ct-band rv">
+      <div class="org-box">
+        <div style="font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--gld);margin-bottom:14px;opacity:.8">Organised by</div>
+        <div class="org-name">Shivanya Events &amp; Jewellers</div>
+        <div class="org-sub">Founded by Roohi Manchanda</div>
+        <div class="org-desc">Founded by an entrepreneur with a legacy in jewellery (Swarnee by Roohi) and footwear (Riwaz Shooz, since 1988). SAMAGAM is our vision of a curated, luxury lifestyle confluence for Punjab.</div>
+        <div class="org-ig"><span>📸</span><span class="ig-pill">@samagam.the.confluence</span></div>
+      </div>
+      <div>
+        <div class="s-ey" style="margin-bottom:14px">Contact &amp; Bookings</div>
+        <div class="ct-info">
+          <div class="ct-row">
+            <div class="ct-ic">📞</div>
+            <div><div class="ct-rl">Booth Bookings</div><div class="ct-rv">+91-76578-41408</div></div>
+          </div>
+          <div class="ct-row">
+            <div class="ct-ic">📞</div>
+            <div><div class="ct-rl">Sponsorships</div><div class="ct-rv">+91-78140-41408</div></div>
+          </div>
+          <div class="ct-row">
+            <div class="ct-ic">✉️</div>
+            <div><div class="ct-rl">Email</div><div class="ct-rv">shivanyaevents03@gmail.com</div></div>
+          </div>
+          <div class="ct-row">
+            <div class="ct-ic">📸</div>
+            <div><div class="ct-rl">Instagram</div><div class="ct-rv">@samagam.the.confluence</div></div>
+          </div>
+          <div class="ct-row">
+            <div class="ct-ic">📍</div>
+            <div><div class="ct-rl">Venue</div><div class="ct-rv">Hyatt Regency Ludhiana, Punjab</div></div>
+          </div>
+        </div>
+        <div class="ct-links">
+          <a href="tel:+917657841408" class="ct-lnk">📞 Call for Stalls</a>
+          <a href="tel:+917814041408" class="ct-lnk">📞 Call for Sponsorship</a>
+          <a href="mailto:shivanyaevents03@gmail.com" class="ct-lnk">✉ Email Us</a>
+          <a href="https://www.instagram.com/samagam.the.confluence" class="ct-lnk" target="_blank">📸 Follow on Instagram</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="ft-grid">
+      <div>
+        <div class="ft-logo">Samagam</div>
+        <div class="ft-tag">The Great Confluence · 2026</div>
+        <p class="ft-desc">Punjab's first premium lifestyle exhibition. One brand per category. Zero competition. Hyatt Regency Ludhiana, 12–13 July 2026.</p>
+      </div>
+      <div class="ft-col">
+        <div class="ft-col-t">Quick Links</div>
+        <ul>
+          <li><a href="#about">About the Event</a></li>
+          <li><a href="#cats">Exhibition Categories</a></li>
+          <li><a href="#exhibitors">Book a Stall</a></li>
+          <li><a href="#sponsors">Sponsorship</a></li>
+          <li><a href="#venue">Venue</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <div class="ft-col-t">Contact</div>
+        <ul>
+          <li><a href="tel:+917657841408">📞 +91-76578-41408 (Stalls)</a></li>
+          <li><a href="tel:+917814041408">📞 +91-78140-41408 (Sponsors)</a></li>
+          <li><a href="mailto:shivanyaevents03@gmail.com">shivanyaevents03@gmail.com</a></li>
+          <li><a href="https://www.instagram.com/samagam.the.confluence" target="_blank">@samagam.the.confluence</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <div class="ft-copy">© 2026 SAMAGAM · Shivanya Events &amp; Jewellers · Hyatt Regency Ludhiana · 12–13 July · Free Entry</div>
+      <div class="ft-soc">
+        <a href="https://www.instagram.com/samagam.the.confluence" target="_blank">Instagram</a>
+        <a href="mailto:shivanyaevents03@gmail.com">Email</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- STALL MODAL -->
+<div class="mol-ov" id="sm">
+  <div class="mol">
+    <button class="mol-x" onclick="document.getElementById('sm').classList.remove('open')">✕</button>
+    <div class="mol-t">Reserve a Stall</div>
+    <div class="mol-s">SAMAGAM 2026 · Hyatt Regency Ludhiana · All prices + GST</div>
+    <div class="form-group"><label>Brand Name</label><input type="text" placeholder="Your brand name"></div>
+    <div class="form-row">
+      <div class="form-group"><label>Stall Size</label>
+        <select>
+          <option>6' × 8' — ₹45,000</option><option>9' × 6' — ₹50,000</option>
+          <option>9' × 8' — ₹55,000</option><option>6' × 15' — ₹65,000</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Category</label>
+        <select>
+          <option>Apparel / Fashion</option><option>Jewellery</option>
+          <option>Footwear</option><option>Luxury Couture</option>
+          <option>Culinary / Food</option><option>Skincare / Beauty</option>
+          <option>Home Décor</option><option>Other</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group"><label>WhatsApp Number</label><input type="tel" placeholder="+91 76578 41408"></div>
+    <div class="form-group"><label>Email</label><input type="email" placeholder="you@brand.com"></div>
+    <button class="btn-g" style="width:100%;cursor:none;margin-top:4px" onclick="document.getElementById('sm').classList.remove('open')">
+      <span>Submit Enquiry — We'll Call You →</span>
+    </button>
+    <p style="font-size:10px;color:rgba(245,230,200,.35);text-align:center;margin-top:12px;line-height:1.7">Or call directly: <strong style="color:var(--glt)">+91-76578-41408</strong> (Booth Bookings) · Roohi Manchanda: <strong style="color:var(--glt)">+91-78140-41408</strong></p>
+  </div>
+</div>
+
+<script>
+// CURSOR
+const cur=document.getElementById('cur'),cr=document.getElementById('cur-r');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+(function anim(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;cur.style.left=mx+'px';cur.style.top=my+'px';cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(anim)})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.width='18px';cur.style.height='18px';cr.style.width='48px';cr.style.height='48px'});
+  el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';cr.style.width='34px';cr.style.height='34px'});
+});
+
+// PARTICLES
+const pc=document.getElementById('ptc');
+for(let i=0;i<24;i++){const p=document.createElement('div');p.className='pt';const s=Math.random()*2.5+.8;p.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;bottom:-8px;animation-duration:${Math.random()*12+7}s;animation-delay:${Math.random()*8}s`;pc.appendChild(p)}
+
+// PETALS
+const pfc=document.getElementById('pfc');
+setInterval(()=>{const p=document.createElement('div');p.className='pf';p.style.cssText=`left:${Math.random()*100}vw;top:-18px;animation-duration:${Math.random()*8+6}s;opacity:${Math.random()*.25+.1}`;pfc.appendChild(p);setTimeout(()=>p.remove(),14000)},3500);
+
+// NAV SCROLL
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('sc',scrollY>55));
+
+// REVEAL
+const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+
+// STAT COUNTERS
+function animN(el,t){let c=0;const step=t/(1800/16);const ti=setInterval(()=>{c=Math.min(c+step,t);el.textContent=Math.floor(c).toLocaleString()+(t>10?'+':'');if(c>=t)clearInterval(ti)},16)}
+const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&e.target.dataset.target){animN(e.target,+e.target.dataset.target);so.unobserve(e.target)}}),{threshold:.5});
+document.querySelectorAll('.st-n[data-target]').forEach(el=>so.observe(el));
+
+// COUNTDOWN
+function ucd(){const now=new Date(),t=new Date('2026-07-12T10:00:00+05:30'),d=Math.max(0,t-now);
+  document.getElementById('cdd').textContent=String(Math.floor(d/86400000)).padStart(2,'0');
+  document.getElementById('cdh').textContent=String(Math.floor(d%86400000/3600000)).padStart(2,'0');
+  document.getElementById('cdm').textContent=String(Math.floor(d%3600000/60000)).padStart(2,'0');
+  document.getElementById('cds').textContent=String(Math.floor(d%60000/1000)).padStart(2,'0');
+}
+ucd();setInterval(ucd,1000);
+
+// FORMS
+function submitEx(){const b=document.getElementById('ebrand').value,ca=document.getElementById('ecat').value;
+  if(!b||!ca)return;document.getElementById('ef').style.display='none';document.getElementById('es').style.display='block';}
+function submitSp(){document.getElementById('ss').style.display='block';document.getElementById('sf-wrap').querySelector('button').style.display='none';}
+
+// MODAL CLOSE ON OVERLAY
+document.getElementById('sm').addEventListener('click',function(e){if(e.target===this)this.classList.remove('open')});
+</script>
+</body>
+</html>
+HTMLEOF
+echo "Built: $(wc -c < /mnt/user-data/outputs/samagam_website.html) bytes"
